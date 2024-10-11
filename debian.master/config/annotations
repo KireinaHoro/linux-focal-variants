@@ -2227,11 +2227,8 @@ CONFIG_CCWGROUP                                 policy<{'s390x': 'm'}>
 CONFIG_CCW_CONSOLE                              policy<{'s390x': 'y'}>
 CONFIG_CC_CAN_LINK                              policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'i386': 'y', 'ppc64el': 'y', 's390x': 'y'}>
 CONFIG_CC_HAS_ASM_GOTO                          policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'i386': 'y', 'ppc64el': 'y', 's390x': 'y'}>
-CONFIG_CC_HAS_ASM_GOTO_OUTPUT                   policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y'}>
-CONFIG_CC_HAS_ASM_GOTO_TIED_OUTPUT              policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y'}>
 CONFIG_CC_HAS_ASM_INLINE                        policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'i386': 'y', 'ppc64el': 'y', 's390x': 'y'}>
 CONFIG_CC_HAS_KASAN_GENERIC                     policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'i386': 'y', 'ppc64el': 'y', 's390x': 'y'}>
-CONFIG_CC_HAS_KASAN_SW_TAGS                     policy<{'arm64': 'y'}>
 CONFIG_CC_HAS_SANCOV_TRACE_PC                   policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'i386': 'y', 'ppc64el': 'y', 's390x': 'y'}>
 CONFIG_CC_HAS_SANE_STACKPROTECTOR               policy<{'amd64': 'y', 'i386': 'y'}>
 CONFIG_CC_HAS_STACKPROTECTOR_NONE               policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'i386': 'y', 'ppc64el': 'y', 's390x': 'y'}>
@@ -4362,7 +4359,7 @@ CONFIG_GAMEPORT_L4                              policy<{'amd64': 'm', 'arm64': '
 CONFIG_GAMEPORT_NS558                           policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'i386': 'm', 'ppc64el': 'm'}>
 CONFIG_GARP                                     policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'i386': 'm', 'ppc64el': 'm', 's390x': 'm'}>
 CONFIG_GART_IOMMU                               policy<{'amd64': 'y'}>
-CONFIG_GCC_VERSION                              policy<{'amd64': '110400', 'arm64': '110400', 'armhf': '110400', 'i386': '90400', 'ppc64el': '90400', 's390x': '90400'}>
+CONFIG_GCC_VERSION                              policy<{'amd64': '90400', 'arm64': '90400', 'armhf': '90400', 'i386': '90400', 'ppc64el': '90400', 's390x': '90400'}>
 CONFIG_GCOV_KERNEL                              policy<{'amd64': 'n', 'arm64': 'n', 'armhf': 'n', 'i386': 'n', 'ppc64el': 'n', 's390x': 'n'}>
 CONFIG_GDB_SCRIPTS                              policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'i386': 'y', 'ppc64el': 'y', 's390x': 'y'}>
 CONFIG_GDS_FORCE_MITIGATION                     policy<{'amd64': 'n', 'i386': 'n'}>
