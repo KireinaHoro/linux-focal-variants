@@ -1,3 +1,11 @@
+linux (5.4.0-200.220+pengxu) focal; urgency=medium
+
+  * Add tickless variant for arm64
+    - [Config] tickless: switch to CONFIG_NO_HZ_FULL
+    - [Config] tickless: use HZ=100 to reduce timer tick influence
+
+ -- Pengcheng Xu <pengcheng.xu@inf.ethz.ch>  Fri, 11 Oct 2024 10:29:40 +0200
+
 linux (5.4.0-200.220) focal; urgency=medium
 
   * focal/linux: 5.4.0-200.220 -proposed tracker (LP: #2082937)

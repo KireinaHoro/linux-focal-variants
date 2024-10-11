@@ -1,7 +1,7 @@
 # Menu: HEADER
 # FORMAT: 4
 # ARCH: amd64 arm64 armhf i386 ppc64el s390x
-# FLAVOUR: amd64-generic amd64-lowlatency arm64-generic armhf-generic armhf-generic-lpae i386-generic i386-lowlatency ppc64el-generic s390x-generic
+# FLAVOUR: amd64-generic amd64-lowlatency arm64-generic arm64-tickless armhf-generic armhf-generic-lpae i386-generic i386-lowlatency ppc64el-generic s390x-generic
 
 CONFIG_ACPI_CUSTOM_DSDT_FILE                    policy<{'amd64': '""', 'i386': '""'}>
 CONFIG_ACPI_CUSTOM_DSDT_FILE                    note<'might allow hardware damage'>
@@ -411,8 +411,8 @@ CONFIG_NOP_USB_XCEIV                            note<'boot essential on omap/hig
 CONFIG_NOUVEAU_LEGACY_CTX_SUPPORT               policy<{'amd64': 'n', 'arm64': 'n', 'armhf': 'n', 'i386': 'n', 'ppc64el': 'n'}>
 CONFIG_NOUVEAU_LEGACY_CTX_SUPPORT               note<'Selects CONFIG_DRM_LEGACY which is not wanted'>
 
-CONFIG_NO_HZ_IDLE                               policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'i386': 'y', 'ppc64el': 'y', 's390x': 'y'}>
-CONFIG_NO_HZ_IDLE                               note<'LP:1413968'>
+CONFIG_NO_HZ_IDLE                               policy<{'amd64': 'y', 'arm64': 'y', 'arm64-tickless': 'n', 'armhf': 'y', 'i386': 'y', 'ppc64el': 'y', 's390x': 'y'}>
+CONFIG_NO_HZ_IDLE                               note<'Use NO_HZ_FULL for tickless kernel'>
 
 CONFIG_NR_CPUS                                  policy<{'amd64': '8192', 'arm64': '256', 'armhf': '4', 'i386': '8', 'ppc64el': '2048', 's390x': '512'}>
 CONFIG_NR_CPUS                                  note<'LP:1864198'>
@@ -2716,6 +2716,8 @@ CONFIG_CONSOLE_LOGLEVEL_QUIET                   policy<{'amd64': '4', 'arm64': '
 CONFIG_CONSOLE_POLL                             policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'i386': 'y', 'ppc64el': 'y'}>
 CONFIG_CONSOLE_TRANSLATIONS                     policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'i386': 'y', 'ppc64el': 'y', 's390x': 'y'}>
 CONFIG_CONTEXT_SWITCH_TRACER                    policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'i386': 'y', 'ppc64el': 'y', 's390x': 'y'}>
+CONFIG_CONTEXT_TRACKING                         policy<{'arm64-tickless': 'y'}>
+CONFIG_CONTEXT_TRACKING_FORCE                   policy<{'arm64-tickless': 'n'}>
 CONFIG_CONTIG_ALLOC                             policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'i386': 'y', 'ppc64el': 'y', 's390x': 'y'}>
 CONFIG_COPS                                     policy<{'amd64': 'm', 'i386': 'm'}>
 CONFIG_COPS_DAYNA                               policy<{'amd64': 'y', 'i386': 'y'}>
@@ -5046,11 +5048,11 @@ CONFIG_HYPERV_UTILS                             policy<{'amd64': 'm', 'i386': 'm
 CONFIG_HYPERV_VSOCKETS                          policy<{'amd64': 'm', 'i386': 'm'}>
 CONFIG_HYSDN                                    policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'i386': 'm', 'ppc64el': 'm'}>
 CONFIG_HYSDN_CAPI                               policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'i386': 'y', 'ppc64el': 'y'}>
-CONFIG_HZ                                       policy<{'amd64-generic': '250', 'amd64-lowlatency': '1000', 'arm64': '250', 'armhf': '250', 'i386-generic': '250', 'i386-lowlatency': '1000', 'ppc64el': '250', 's390x': '100'}>
-CONFIG_HZ_100                                   policy<{'amd64': 'n', 'arm64': 'n', 'armhf': 'n', 'i386': 'n', 'ppc64el': 'n', 's390x': 'y'}>
+CONFIG_HZ                                       policy<{'amd64-generic': '250', 'amd64-lowlatency': '1000', 'arm64': '250', 'arm64-tickless': '100', 'armhf': '250', 'i386-generic': '250', 'i386-lowlatency': '1000', 'ppc64el': '250', 's390x': '100'}>
+CONFIG_HZ_100                                   policy<{'amd64': 'n', 'arm64': 'n', 'arm64-tickless': 'y', 'armhf': 'n', 'i386': 'n', 'ppc64el': 'n', 's390x': 'y'}>
 CONFIG_HZ_1000                                  policy<{'amd64-generic': 'n', 'amd64-lowlatency': 'y', 'arm64': 'n', 'armhf': 'n', 'i386-generic': 'n', 'i386-lowlatency': 'y', 'ppc64el': 'n', 's390x': 'n'}>
 CONFIG_HZ_200                                   policy<{'armhf': 'n'}>
-CONFIG_HZ_250                                   policy<{'amd64-generic': 'y', 'amd64-lowlatency': 'n', 'arm64': 'y', 'armhf': 'y', 'i386-generic': 'y', 'i386-lowlatency': 'n', 'ppc64el': 'y', 's390x': 'n'}>
+CONFIG_HZ_250                                   policy<{'amd64-generic': 'y', 'amd64-lowlatency': 'n', 'arm64': 'y', 'arm64-tickless': 'n', 'armhf': 'y', 'i386-generic': 'y', 'i386-lowlatency': 'n', 'ppc64el': 'y', 's390x': 'n'}>
 CONFIG_HZ_300                                   policy<{'amd64': 'n', 'arm64': 'n', 'armhf': 'n', 'i386': 'n', 'ppc64el': 'n', 's390x': 'n'}>
 CONFIG_HZ_500                                   policy<{'armhf': 'n'}>
 CONFIG_HZ_FIXED                                 policy<{'armhf': '0'}>
@@ -7756,7 +7758,7 @@ CONFIG_NOUVEAU_PLATFORM_DRIVER                  policy<{'armhf-generic': 'y'}>
 CONFIG_NOZOMI                                   policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'i386': 'm', 'ppc64el': 'm', 's390x': 'n'}>
 CONFIG_NO_HZ                                    policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'i386': 'y', 'ppc64el': 'y', 's390x': 'y'}>
 CONFIG_NO_HZ_COMMON                             policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'i386': 'y', 'ppc64el': 'y', 's390x': 'y'}>
-CONFIG_NO_HZ_FULL                               policy<{'amd64': 'n', 'arm64': 'n', 'armhf': 'n', 'ppc64el': 'n'}>
+CONFIG_NO_HZ_FULL                               policy<{'amd64': 'n', 'arm64': 'n', 'arm64-tickless': 'y', 'armhf': 'n', 'ppc64el': 'n'}>
 CONFIG_NO_IOPORT_MAP                            policy<{'armhf': 'y', 's390x': 'y'}>
 CONFIG_NPCM7XX_KCS_IPMI_BMC                     policy<{'armhf': 'm'}>
 CONFIG_NPCM7XX_TIMER                            policy<{'armhf': 'y'}>
@@ -8933,6 +8935,7 @@ CONFIG_RCU_CPU_STALL_TIMEOUT                    policy<{'amd64': '60', 'arm64': 
 CONFIG_RCU_EQS_DEBUG                            policy<{'amd64': 'n', 'arm64': 'n', 'armhf': 'n', 'i386': 'n', 'ppc64el': 'n', 's390x': 'n'}>
 CONFIG_RCU_EXPERT                               policy<{'amd64': 'n', 'arm64': 'n', 'armhf': 'n', 'i386': 'n', 'ppc64el': 'n', 's390x': 'n'}>
 CONFIG_RCU_NEED_SEGCBLIST                       policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'i386': 'y', 'ppc64el': 'y', 's390x': 'y'}>
+CONFIG_RCU_NOCB_CPU                             policy<{'arm64-tickless': 'y'}>
 CONFIG_RCU_PERF_TEST                            policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'i386': 'm', 'ppc64el': 'm', 's390x': 'm'}>
 CONFIG_RCU_STALL_COMMON                         policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'i386': 'y', 'ppc64el': 'y', 's390x': 'y'}>
 CONFIG_RCU_TORTURE_TEST                         policy<{'amd64': 'n', 'arm64': 'n', 'armhf': 'n', 'i386': 'n', 'ppc64el': 'n', 's390x': 'n'}>
@@ -11286,7 +11289,7 @@ CONFIG_THUNDER_NIC_BGX                          policy<{'amd64': 'm', 'arm64': '
 CONFIG_THUNDER_NIC_PF                           policy<{'amd64': 'm', 'arm64': 'm', 'ppc64el': 'm'}>
 CONFIG_THUNDER_NIC_RGX                          policy<{'amd64': 'm', 'arm64': 'm', 'ppc64el': 'm'}>
 CONFIG_THUNDER_NIC_VF                           policy<{'amd64': 'm', 'arm64': 'm', 'ppc64el': 'm'}>
-CONFIG_TICK_CPU_ACCOUNTING                      policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'i386': 'y', 'ppc64el': 'y'}>
+CONFIG_TICK_CPU_ACCOUNTING                      policy<{'amd64': 'y', 'arm64': 'y', 'arm64-tickless': '-', 'armhf': 'y', 'i386': 'y', 'ppc64el': 'y'}>
 CONFIG_TICK_ONESHOT                             policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'i386': 'y', 'ppc64el': 'y', 's390x': 'y'}>
 CONFIG_TIFM_7XX1                                policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'i386': 'm', 'ppc64el': 'm'}>
 CONFIG_TIFM_CORE                                policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'i386': 'm', 'ppc64el': 'm', 's390x': 'n'}>
@@ -12447,8 +12450,8 @@ CONFIG_VIRTIO_PMEM                              policy<{'amd64': 'm', 'arm64': '
 CONFIG_VIRTIO_VSOCKETS                          policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'i386': 'm', 'ppc64el': 'm', 's390x': 'm'}>
 CONFIG_VIRTIO_VSOCKETS_COMMON                   policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'i386': 'm', 'ppc64el': 'm', 's390x': 'm'}>
 CONFIG_VIRTUALIZATION                           policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'i386': 'y', 'ppc64el': 'y', 's390x': 'y'}>
-CONFIG_VIRT_CPU_ACCOUNTING                      policy<{'s390x': 'y'}>
-CONFIG_VIRT_CPU_ACCOUNTING_GEN                  policy<{'amd64': 'n', 'arm64': 'n', 'armhf': 'n', 'ppc64el': 'n'}>
+CONFIG_VIRT_CPU_ACCOUNTING                      policy<{'arm64-tickless': 'y', 's390x': 'y'}>
+CONFIG_VIRT_CPU_ACCOUNTING_GEN                  policy<{'amd64': 'n', 'arm64': 'n', 'arm64-tickless': 'y', 'armhf': 'n', 'ppc64el': 'n'}>
 CONFIG_VIRT_CPU_ACCOUNTING_NATIVE               policy<{'ppc64el': 'n', 's390x': 'y'}>
 CONFIG_VIRT_DRIVERS                             policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'i386': 'y', 'ppc64el': 'y', 's390x': 'y'}>
 CONFIG_VIRT_TO_BUS                              policy<{'amd64': 'y', 'i386': 'y'}>
